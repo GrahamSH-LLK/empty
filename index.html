@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/simpledotcss/simple.min.css"
+    />
+
+    <title>challenge</title>
+  </head>
+  <body>
+    <header>
+      <h1>Challenge thingy</h1>
+      <p>imma be asleep sooo</p>
+    </header>
+
+    <main>
+      <p>In theory you need none of these.</p>
+      <details>
+        <summary>Hint 1: "I can't find the sign you're talking about"</summary>
+        <p>Good thing I took a photo of it</p>
+        <img src="sign.jpeg" />
+      </details>
+      <details>
+        <summary>Hint 2: "I need a little bit of help with the cipher"</summary>
+        <p>Yeaaaah chatgpt couldn't get it either.</p>
+        <p>Hint: It's a lookup cipher</p>
+      </details>
+      <details>
+        <summary>Hint 3: "I still need a bit of help with it"</summary>
+        <p>Hint: L = 1, E = 2, ...</p>
+      </details>
+      <details>
+        <summary>
+          Hint 4: "Graham, pretty sure you fucked up the cipher."
+        </summary>
+        <p>It's supposed to say "under red sign says need help"</p>
+      </details>
+      <details>
+        <summary>Hint 5: "What on earth does that mean"</summary>
+        <p>This is what that means!</p>
+        <img src="need-help.jpeg" />
+      </details>
+    </main>
+
+    <footer>
+      <p>no peeking :)</p>
+    </footer>
+  </body>
+</html>
+<script>
+   // disable all details
+   // check if date is the 26th in current time zone
+   const currentDate = new Date();
+   const is26th = currentDate.getDate() === 26;
+
+   // disable details if it's not the 26th
+   if (is26th) {
+     const details = document.querySelectorAll('details');
+     details.forEach(detail => detail.setAttribute('disabled', true));
+     details.forEach(detail=> detail.addEventListener('click', ()=> {
+      alert( 'no peeking :(')
+      window.location.href = window.location.href;
+     }))
+   }
+</script>
+<style>
+   details[disabled] summary,
+   details.disabled summary {
+     pointer-events: none; /* prevents click events */
+     user-select: none; /* prevents text selection */
+   }
+ </style>
+ 
